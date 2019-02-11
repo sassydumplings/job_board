@@ -1,0 +1,13 @@
+<%= form_for(@application) do |f| %>
+  <%= f.hidden_field :user_id, :value => params[:user_id] %>
+  <%= f.hidden_field :job_id, :value => params[:job_id] %>
+
+  <div class="field">
+    <%= f.label :notes, "Notes" %>
+    <%= f.text_area :notes, label: "Notes"  %>
+  </div>
+
+  <br>
+
+  <%= f.submit "Submit Application" %>
+<% end %>

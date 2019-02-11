@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, :except => [:index]
-  before_action :get_job, :only => [:update, :edit, :destroy]
+  before_action :set_job, :only => [:update, :edit, :destroy]
 
   def new
    # constant checking with employer? method needs to be DRYed up
@@ -60,7 +60,7 @@ class JobsController < ApplicationController
 
   private
 
-  def get_job
+  def set_job
     @job = Job.find(params[:id])
   end
 
