@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JobBoard</title>
+    <title>Job Board</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,12 +10,24 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <body>
+      <div class="container">
+        <div id="title"><%= link_to "Job Board", root_path %></div>
+        <header>
+          <%= render "layouts/navigation" %>
+        </header>
+
+        <div class="main">
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+
+      </div>
+    </body>
   </body>
 </html>

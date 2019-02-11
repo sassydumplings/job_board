@@ -1,0 +1,29 @@
+<%= form_for(@job) do |f| %>
+
+  <div class="field">
+    <%= f.label :job_title, "Job title" %>
+    <%= f.text_field :job_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employer_name, "Employer Name" %>
+    <%= f.text_field :employer_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location, "Location" %>
+    <%= f.text_field :location %>
+  </div>
+
+  <%= f.hidden_field :employer_id, :value => current_user.id unless @job.employer_id %>
+
+  <br>
+
+  <%= f.submit %>
+  <p class="required">All fields are required</p>
+<% end %>

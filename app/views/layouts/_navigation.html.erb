@@ -1,0 +1,26 @@
+<div class="navigation">
+  <% if !current_user %>
+    <ul>
+      <li><%= link_to "Log in", new_user_session_path %></li>
+    </ul>
+
+  <% else %>
+    <div class="salutation">
+      Hello, <%= current_user.name %>
+    </div>
+
+    <% if current_user.employer? %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Post a new job listing", new_job_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
+      </ul>
+
+    <% else %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

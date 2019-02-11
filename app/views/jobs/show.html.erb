@@ -1,0 +1,8 @@
+<h3><%= @job.job_title %></h3>
+
+<div>
+	<div>Employer: <%= @job.employer_name %></div>
+	<div>Location: <%= @job.location %></div>
+	<div>Description: <%= @job.description %></div>
+	<div>Posting Date: <%= @job.updated_at.strftime("%d/%m/%Y") %></div>
+</div>

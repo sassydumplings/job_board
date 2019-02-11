@@ -1,0 +1,18 @@
+<% if @jobs.blank? %>
+    <h2>No jobs currently available, check back soon</h2>
+
+<% else %>
+  <h2>Current Job Listings:</h2>
+
+	<% @jobs.each do |job| %>
+		<div>
+	     	<div>Job Title: <%= link_to job.job_title, job_path(job) %></div>
+	    	<div>Employer: <%= job.employer_name %></div>
+	    	<div>Location: <%= job.location %></div>
+	    	<div>Description: <%= job.description %></div>
+	    	<div>Posting Date: <%= job.updated_at.strftime("%d/%m/%Y") %></div>
+	    	<br>
+	    </div>
+	<% end %>
+
+ <% end %>
