@@ -11,6 +11,9 @@
 
   <tbody>
     <% @applications.each do |application| %>
+      <ul>
+        <li>application</li>
+      </ul>
       <tr>
         <td><%= link_to 'Show', application %></td>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>

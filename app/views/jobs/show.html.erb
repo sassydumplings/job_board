@@ -6,7 +6,12 @@
 	<div>Description: <%= @job.description %></div>
 	<div>Posting Date: <%= @job.updated_at.strftime("%d/%m/%Y") %></div>
 </div>
-
+<br>
 <% if current_user && current_user.applicant? %>
-	<%= link_to "Submit Application", new_application_path(job_id: @job.id, user_id: current_user), method: "get", class: "btn" %>
+  <% if @app && @app.id.present? %>
+    <div>You have already applied to this Job</div>
+    <div>See the <%= link_to "List My Applications", applications_path %> for more info</div>
+  <% else %>
+  	<%= link_to "Submit Application", new_application_path(job_id: @job.id, user_id: current_user), method: "get", class: "btn" %>
+  <% end %>
 <% end %>

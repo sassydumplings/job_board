@@ -19,8 +19,11 @@
     <% else %>
       <ul>
         <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "List My Applications", applications_path %></li>
         <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
       </ul>
     <% end %>
   <% end %>
 </div>
+
+<!--  currently only employers and applicants in ths app - would update logic if adding other types of users -->
