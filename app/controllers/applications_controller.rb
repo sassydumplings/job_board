@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
   # GET /applications.json
   def index
     if current_user.applicant?
-       @applications = current_user.applications
+      @applications = current_user.applications
     else
       @applications = Application.all
     end

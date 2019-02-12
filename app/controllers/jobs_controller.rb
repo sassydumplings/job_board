@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def new
    # constant checking with employer? method needs to be DRYed up
-   if employer?
+   if current_user && current_user.employer?
     @job = Job.new
    else
     redirect_to root_path, alert: "Only employers can add a job listing"
@@ -13,7 +13,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    if employer?
+    if current_user && current_user.employer?
       @job = Job.new(job_params)
       @app = Application.find_by(job_id: @job)
 
@@ -38,7 +38,7 @@ class JobsController < ApplicationController
   end
 
   def update
-    if employer?
+    if current_user && current_user.employer?
       @job.update(job_params)
       redirect_to @job, alert: "Job listing updated"
     else
@@ -47,7 +47,12 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.all
+    if current_user && current_user.employer?
+      @jobs = current_user.jobs
+    else
+      @jobs = Job.all
+    end
+
     render :index
   end
 
@@ -64,10 +69,6 @@ class JobsController < ApplicationController
 
   def set_job
     @job = Job.find(params[:id])
-  end
-
-  def employer?
-    current_user.employer?
   end
 
   def job_params

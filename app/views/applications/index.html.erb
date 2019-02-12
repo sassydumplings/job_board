@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Applications</h1>
+<h1>My Applications</h1>
 
 <table>
   <thead>
@@ -12,13 +12,11 @@
   <tbody>
     <% @applications.each do |application| %>
       <ul>
-        <li>application</li>
+        <div>Job Title: <%= application.job.job_title %></div>
+        <div>Company: <%= application.job.employer_name %></div>
+        <div>Submission Date: <%= application.created_at.strftime("%d/%m/%Y") %></div>
+        <div>Notes: <%= application.notes %></div>
       </ul>
-      <tr>
-        <td><%= link_to 'Show', application %></td>
-        <td><%= link_to 'Edit', edit_application_path(application) %></td>
-        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
   </tbody>
 </table>
