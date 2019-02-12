@@ -11,8 +11,14 @@
 	    	<div>Location: <%= job.location %></div>
 	    	<div>Description: <%= job.description %></div>
 	    	<div>Posting Date: <%= job.updated_at.strftime("%d/%m/%Y") %></div>
-	    	<br>
 	    </div>
+	    <ul>
+	    	<% job.applications.each do |app| %>
+	    		<li>Applicant Name: <%= app.applicant.name %></li>
+	    		<li>Date Submitted: <%= app.created_at.strftime("%d/%m/%Y")%></li>
+	    	<% end %>
+	    </ul>
+
 	<% end %>
 
  <% end %>

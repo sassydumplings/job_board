@@ -15,7 +15,6 @@ class JobsController < ApplicationController
   def create
     if current_user && current_user.employer?
       @job = Job.new(job_params)
-      @app = Application.find_by(job_id: @job)
 
       if @job.save
         redirect_to @job, alert: "New Job listing created"
@@ -80,10 +79,3 @@ class JobsController < ApplicationController
   end
 
 end
-
-# <!--   <% @app = Application.where(user_id: current_user, job_id: @job.id) %>
-#   <% if @app && @app.id.present? %>
-#     <%= #{}"Already applied to this Job" %>
-#   <% else %>
-#     <%= #link_to "Submit Application", new_application_path(job_id: @job.id, user_id: current_user), method: "get", class: "btn" %>
-#   <% end %> -->
