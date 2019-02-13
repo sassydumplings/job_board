@@ -17,7 +17,7 @@ An employer should be able to:
 Users have been seeded in the db:
 * password for all accounts are for_demo
 * applicant1@example.com, applicant2@example.com are the applicants
-* employer1@example.com, applicant2@example.com are the employers
+* employer1@example.com, employer2@example.com are the employers
 
 ## Environment && Installation
 Ruby 2.3.7p456 and Rails 5.2.2
