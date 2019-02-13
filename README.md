@@ -22,6 +22,11 @@ Users have been seeded in the db:
 ## Environment && Installation
 Ruby 2.3.7p456 and Rails 5.2.2
 
+## Deployed on Heroku
+https://intense-fortress-62641.herokuapp.com/
+
+
+
 Clone this repo
 Run 'bundle install'
 Run 'rails db:migrate'
