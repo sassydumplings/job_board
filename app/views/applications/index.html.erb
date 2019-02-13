@@ -10,17 +10,20 @@
   </thead>
 
   <tbody>
-    <% @applications.each do |application| %>
-      <ul>
-        <div>Job Title: <%= application.job.job_title %></div>
-        <div>Company: <%= application.job.employer_name %></div>
-        <div>Submission Date: <%= application.created_at.strftime("%d/%m/%Y") %></div>
-        <div>Notes: <%= application.notes %></div>
-      </ul>
+    <% if @applications %>
+      <% @applications.each do |application| %>
+        <ul>
+          <div>Job Title: <%= application.job.job_title %></div>
+          <div>Company: <%= application.job.employer_name %></div>
+          <div>Submission Date: <%= application.created_at.strftime("%d/%m/%Y") %></div>
+          <div>Notes: <%= application.notes %></div>
+        </ul>
+      <% end %>
+    <% else %>
+      <h2>No applications yet</h2>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Application', new_application_path %>

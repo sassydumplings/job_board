@@ -8,7 +8,7 @@
 <!-- Need to autopopulate Employer name -->
   <div class="field">
     <%= f.label :employer_name, "Employer Name" %>
-    <%= f.text_field :employer_name %>
+    <%= f.text_field :employer_name, value: current_user.company, placeholder: current_user.company  %>
   </div>
 
   <div class="field">
