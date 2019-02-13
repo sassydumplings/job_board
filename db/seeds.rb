@@ -29,14 +29,16 @@ employer1 = User.create!(
     name: 'Employer1',
     email: 'employer1@example.com',
     password: 'for_demo',
-    role: 1
+    role: 1,
+    company: 'Apps4Us'
 )
 
 employer2 = User.create!(
     name: 'Employer2',
     email: 'employer2@example.com',
     password: 'for_demo',
-    role: 1
+    role: 1,
+    company: 'ServiceMax'
 )
 
 admin = User.create!(
@@ -101,28 +103,28 @@ Job.create([
     job_title: 'Customer Support Associate',
     description: 'Resolve support issues',
     employer_name: 'ServiceMax',
-    employer_id: employer1.id,
+    employer_id: employer2.id,
     location: 'San Mateo, CA'
   },
   {
     job_title: 'Customer Support Manager',
     description: 'Lead support team to success',
     employer_name: 'ServiceMax',
-    employer_id: employer1.id,
+    employer_id: employer2.id,
     location: 'San Mateo, CA'
   },
   {
     job_title: 'Customer Support DevOPs',
     description: 'Build and maintain internal support tools',
     employer_name: 'ServiceMax',
-    employer_id: employer1.id,
+    employer_id: employer2.id,
     location: 'San Mateo, CA'
   },
   {
     job_title: 'SR Customer Support Associate',
     description: 'Resolve support issues, manage solutions database and champion best practices',
     employer_name: 'ServiceMax',
-    employer_id: employer1.id,
+    employer_id: employer2.id,
     location: 'San Mateo, CA'
   }
   ])
